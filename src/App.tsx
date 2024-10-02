@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CharacterGrid from "./components/CharacterGrid";
 import { Box, Grid, GridItem, Show } from "@chakra-ui/react";
+import CharacterSelector from "./components/CharacterSelector";
 
 function App() {
   return (
@@ -19,9 +20,11 @@ function App() {
           nav
         </GridItem>
         <Show above="lg">
-          <GridItem area="aside">aside</GridItem>
+          <GridItem area="aside">
+            <CharacterSelector></CharacterSelector>
+          </GridItem>
         </Show>
-        <GridItem area="main" bg="dodgerblue">
+        <GridItem area="main">
           <CharacterGrid />
         </GridItem>
       </Grid>

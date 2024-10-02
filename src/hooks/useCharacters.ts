@@ -8,8 +8,25 @@ export interface Character {
   species: string;
 }
 
-const useCharacters = () => {
-  return useData<Character>("/character");
+interface FilterOptions {
+  name?: string;
+  status?: string;
+  species?: string;
+  type?: string;
+  gender?: string;
+}
+
+const useCharacters = (filters: FilterOptions = {}) => {
+  const query = new URLSearchParams(
+    Object.entries(filters).reduce((acc, [key, value]) => {
+      if (value !== undefined) {
+        acc[key] = value;
+      }
+      return acc;
+    }, {} as Record<string, string>)
+  ).toString();
+  const url = `/character${query ? `?${query}` : ""}`;
+  return useData<Character>(url);
 };
 
 export default useCharacters;
