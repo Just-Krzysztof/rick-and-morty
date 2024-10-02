@@ -34,7 +34,7 @@ function App() {
           lg: "200px 1fr",
         }}
       >
-        <GridItem area="nav" display={'flex'} justifyContent={{sm:'center',lg:'end'}}>
+        <GridItem area="nav" display={'flex'} paddingX={10} justifyContent={{sm:'center',lg:'end'}}>
           <NavBar/>
         </GridItem>
         <Show above="lg">
@@ -79,7 +79,9 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area="main">
-          <CharacterGrid characterQuery={characterQuery} />
+          <Box padding={10}>
+            <CharacterGrid characterQuery={characterQuery} />
+          </Box>
         </GridItem>
       </Grid>
     </>
