@@ -3,10 +3,17 @@ import useCharacters from "../hooks/useCharacters";
 import CharacterCard from "./CharacterCard";
 import { SimpleGrid, Button, Box, HStack } from "@chakra-ui/react";
 import CharacterCardContainer from "./CharacterCardContainer";
+import { CharacterQuery } from "../App";
 
-const CharacterGrid = () => {
+interface Props {
+  characterQuery: CharacterQuery;
+}
+
+const CharacterGrid = ({ characterQuery }: Props) => {
   const { data, info, error, nextPage, prevPage, page } = useCharacters({
-    name: "rick",
+    gender: `${characterQuery.gender }`,
+    species: `${characterQuery.species}`,
+    status: `${characterQuery.status}`,
   });
 
   if (error) return <p>Error: {error}</p>;

@@ -1,6 +1,5 @@
-import { Select } from "@chakra-ui/react";
+import { Box, Button, Heading, Select } from "@chakra-ui/react";
 import { Genre } from "../hooks/useGenres";
-
 
 interface Props {
   title: string;
@@ -10,13 +9,20 @@ interface Props {
 const CharacterSelector = ({ title, options }: Props) => {
   return (
     <>
-      <Select placeholder={title}>
+      <Box overflow='hidden' m={4}>
+      <Heading fontSize="xl" mb={2}>
+        {title}
+      </Heading>
+      <ul >
         {options.map((option) => (
-          <option key={option.id} value={option.id}>
+          <li key={option.id} value={option.id}>
+            <Button variant="link">
             {option.name}
-          </option>
+            </Button>
+          </li>
         ))}
-      </Select>
+      </ul>
+      </Box>
     </>
   );
 };
