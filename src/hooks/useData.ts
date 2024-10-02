@@ -24,7 +24,8 @@ const useData = <T>(endpoint: string, deps: any[] = []) => {
 
   useEffect(() => {
     const controller = new AbortController();
-    setLoading(true);
+      setLoading(true);
+      setError("")
     const [baseUrl, query] = endpoint.split('?');
     const urlWithPage = `${baseUrl}?page=${page}${query ? `&${query}` : ""}`;
     apiClient
@@ -49,5 +50,4 @@ const useData = <T>(endpoint: string, deps: any[] = []) => {
 
   return { data, error, info, isLoading, nextPage, prevPage, page };
 };
-
 export default useData;
