@@ -1,7 +1,7 @@
 import React from "react";
 import useCharacters from "../hooks/useCharacters";
 import CharacterCard from "./CharacterCard";
-import { SimpleGrid, Button, Box } from "@chakra-ui/react";
+import { SimpleGrid, Button, Box, HStack } from "@chakra-ui/react";
 import CharacterCardContainer from "./CharacterCardContainer";
 
 const CharacterGrid = () => {
@@ -20,14 +20,15 @@ const CharacterGrid = () => {
           </CharacterCardContainer>
         ))}
       </SimpleGrid>
-      {JSON.stringify(info)}
-      <Box mt={4} display="flex" justifyContent="center">
-        <Button onClick={prevPage} disabled={page === 1}>
-          Previous
-        </Button>
-        <Button onClick={nextPage} disabled={!info?.next}>
-          Next
-        </Button>
+      <Box my={4} display="flex" justifyContent="center">
+        <HStack>
+          <Button onClick={prevPage} disabled={page === 1}>
+            Previous
+          </Button>
+          <Button onClick={nextPage} disabled={!info?.next}>
+            Next
+          </Button>
+        </HStack>
       </Box>
     </Box>
   );
