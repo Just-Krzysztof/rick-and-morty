@@ -34,7 +34,7 @@ function App() {
           lg: "200px 1fr",
         }}
       >
-        <GridItem area="nav" display={'flex'} justifyContent={'end'}>
+        <GridItem area="nav" display={'flex'} justifyContent={{sm:'center',lg:'end'}}>
           <NavBar/>
         </GridItem>
         <Show above="lg">
