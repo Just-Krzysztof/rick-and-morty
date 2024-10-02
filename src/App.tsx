@@ -2,6 +2,13 @@ import { useState } from "react";
 import CharacterGrid from "./components/CharacterGrid";
 import { Box, Grid, GridItem, Show } from "@chakra-ui/react";
 import CharacterSelector from "./components/CharacterSelector";
+import genres from "./data/genres";
+import { Genre } from "./hooks/useGenres";
+
+
+export interface CharacterQuery {
+  gender: Genre[];
+}
 
 function App() {
   return (
@@ -21,7 +28,9 @@ function App() {
         </GridItem>
         <Show above="lg">
           <GridItem area="aside">
-            <CharacterSelector></CharacterSelector>
+            <CharacterSelector title="Select Gender" options={genres[0]?.genders || []} />
+            <CharacterSelector title="Select Species" options={genres[1]?.species || []} />
+            <CharacterSelector title="Select Status" options={genres[2]?.status || []} />
           </GridItem>
         </Show>
         <GridItem area="main">
